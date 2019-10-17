@@ -1,0 +1,40 @@
+version:              '3'
+# Tout ce qui est
+services:
+  # Volatile IDE Workspace :
+  # should support hot reloading
+  hot_ide_workspace:
+  # Pipeline Step 1 : Build Atom From Source
+    hostname: 'apm_build_from_src.atom-ide.pipeline.pegasus.io'
+    container_name: "apm_build_from_src"
+    image: pegasus-devops.io/apm_build_from_src:0.0.1
+    build:
+      context: docker/autre3
+      args:
+        # + ...
+        - AAAA="voyons$BBBB"
+        
+    environment:
+      # + ...
+      - AAAA="voila$BBBB"
+    # ---------------------------------------------
+    # [docker [run|exec] -it ...]
+    # stdin
+    stdin_open:       true
+    # stdout
+    tty:              true
+    # ---------------------------------------------
+    # ports:
+      # - 7999:8085/tcp
+    # ---------------------------------------------
+    volumes:
+      - ./pipeline/ops:/pipeline/ops/:rw
+    networks:
+      - "atom_ide_pipeline_net"
+    restart: always
+    # depends_on:
+      # - xxx
+
+networks:
+  atom_ide_pipeline_net:
+    driver: bridge
