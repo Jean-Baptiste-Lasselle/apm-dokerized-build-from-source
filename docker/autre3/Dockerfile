@@ -31,8 +31,8 @@ RUN apk add --no-cache --update \
 # cf. https://westerndevs.com/JavaScript/How-to-Fix-node-gyp-Error-on-Windows/
 
 # Set Python version
-# ARG PYTHON_VERSION='3.7.0'
-ARG PYTHON_VERSION='2.7.16'
+# ARG APM_BUILD_PYTHON_VERSION='3.7.0'
+ARG APM_BUILD_PYTHON_VERSION='2.7.16'
 # Another Problem : Python 2 is now DEPRECATED => We will HAVE to make the build recipe of APM evolve
 #                   https://www.python.org/download/releases/2.7/
 # Set pyenv home
@@ -44,8 +44,8 @@ RUN git clone --depth 1 https://github.com/pyenv/pyenv.git $PYENV_HOME && \
 
 ENV PATH $PYENV_HOME/shims:$PYENV_HOME/bin:$PATH
 
-RUN pyenv install $PYTHON_VERSION
-RUN pyenv global $PYTHON_VERSION
+RUN pyenv install $APM_BUILD_PYTHON_VERSION
+RUN pyenv global $APM_BUILD_PYTHON_VERSION
 RUN pip install --upgrade pip && pyenv rehash
 
 # Clean

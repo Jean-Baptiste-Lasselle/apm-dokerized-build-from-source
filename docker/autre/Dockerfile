@@ -25,7 +25,7 @@ RUN apk add --no-cache --update \
     build-base
 
 # Set Python version
-ARG PYTHON_VERSION='3.7.0'
+ARG APM_BUILD_PYTHON_VERSION='3.7.0'
 # Set pyenv home
 ARG PYENV_HOME=/root/.pyenv
 
@@ -35,8 +35,8 @@ RUN git clone --depth 1 https://github.com/pyenv/pyenv.git $PYENV_HOME && \
 
 ENV PATH $PYENV_HOME/shims:$PYENV_HOME/bin:$PATH
 
-RUN pyenv install $PYTHON_VERSION
-RUN pyenv global $PYTHON_VERSION
+RUN pyenv install $APM_BUILD_PYTHON_VERSION
+RUN pyenv global $APM_BUILD_PYTHON_VERSION
 RUN pip install --upgrade pip && pyenv rehash
 
 # Clean
