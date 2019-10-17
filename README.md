@@ -16,6 +16,11 @@ Well actually it started with a build from source recipe, but suddenly :
 
 * Just `git` clone and `docker-compose up -d`
 
+### Note ...
+
+This recipe is made, with an aim in mind: splitting `Atom IDE` into smaller dockerized parts. Why? To make Atom faster, much faster.
+faster hot reconfiguration, to switch from one pipeline, to another, as quickly as possible.
+
 Recette de provision du package manager Atom : APM
 https://github.com/atom/apm
 
