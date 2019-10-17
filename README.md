@@ -3,7 +3,7 @@
 
 ### What's this ?
 
-An automated APM Build From Source. The recipe also shows how to standalone run APM, see : https://github.com/Jean-Baptiste-Lasselle/apm-dokerized-build-from-source
+An automated `APM` Build From Source. The recipe also shows how to standalone run `APM`
 
 Well actually it started with a build from source recipe, but suddenly :
 * I manage to tear off Atom IDE, its package manager : `APM`
