@@ -27,8 +27,8 @@ services:
     # ports:
       # - 7999:8085/tcp
     # ---------------------------------------------
-    volumes:
-      - ./pipeline/ops:/pipeline/ops/:rw
+    # volumes:
+      # - ./pipeline/ops:/pipeline/ops/:rw
     networks:
       - "atom_ide_pipeline_net"
     restart: always
