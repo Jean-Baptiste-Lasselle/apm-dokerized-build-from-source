@@ -38,7 +38,7 @@ apm est habituallement installé avec Atom. Cette recette permet de l'installer 
 ```bash
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
 
-export URI_DE_CE_REPO=git@gitlab.com:Jean-Baptiste-Lasselle/apm-dokerized-build-from-source.git
+export URI_DE_CE_REPO=git@github.com:Jean-Baptiste-Lasselle/apm-dokerized-build-from-source.git
 
 export COMMIT_MESSAGE=""
 export COMMIT_MESSAGE="COMMIT_MESSAGE Votre msg de commit"
@@ -66,7 +66,7 @@ docker-compose logs -f
 
 # docker exec -it apm_build_from_src sh -c "/pipeline/ops/bin/apm update"
 
-# docker exec -it apm_build_from_src sh -c "/pipeline/ops/bin/apm install hydrogen"
+# docker exec -it apm_build_from_src sh -c "/pipeline/ops/bin/apm install teletype"
 
 ```
 
@@ -360,13 +360,13 @@ _**What I then did**_
   * Well it turned out indeed, that `git-utils` was referenced inside the `package.json` of APM 's source code, in the `dependency` section, and not in the `devDepencies`. So positively a runtime dependency, not a build time dependency.
   * Furthermore, going into detailed `APM`'s git commit history, commits d'APM, I noticed that `28` days before my tests, on  the `25th of December, 2019`, the very same day version `5.6.2` of `git-utils` was released, a new commit was pushed to  to `APM`'s official source code git repo https://github.com/atom/apm.git, modifying the `package.json`, so that APM's uses its dependency `git-utils`, in version version `5.6.2`, instead of previously used version `4.0` : 
 
-[![ecran diff du commit ayant changé version de 'git-utils'](./documentations/images/impr.ecran/Firefox_Screenshot_2019-12-25T18-34-58.012Z.png)](https://github.com/atom/apm/commit/5332714ecc839a9f90e4ce8bb118cd51ed0c7f11)
+[![ecran diff du commit ayant changé version de 'git-utils'](https://gitlab.com/second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager/raw/master/documentations/images/impr.ecran/Firefox_Screenshot_2019-12-25T18-34-58.012Z.png?inline=false) ](https://github.com/atom/apm/commit/5332714ecc839a9f90e4ce8bb118cd51ed0c7f11)
 
 _lien vers le commit exact : https://github.com/atom/apm/commit/5332714ecc839a9f90e4ce8bb118cd51ed0c7f11_
 
 * On the other hand, I also noticed some things happened, on `APM`'s official source code git repo https://github.com/atom/apm.git, during the period  starting `28`, say `30`, days before my tests, on the `25th of December, 2019`. Indeed, there were also not one, but **two new relases of `APM`** (versions  `2.4.4` and  `2.4.5`)
 
-[![dernières releases APM](./documentations/images/impr.ecran/Firefox_Screenshot_2019-12-25T18-36-16.752Z.png?inline=false)](https://github.com/atom/apm/releases)
+[![dernières releases APM](https://gitlab.com/second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager/raw/master/documentations/images/impr.ecran/Firefox_Screenshot_2019-12-25T18-36-16.752Z.png?inline=false)](https://github.com/atom/apm/releases)
 
 * Right, from there, here is my alternative, to reproduce the successful build from source I obtained weeks ago : making sure that my build from source uses an _inambiguous_ version of the source code of APM, in our case version `2.4.3` of APM, instead of always git cloning latest commit on master (which is ahead of `2.4.5`, and any release actually). 
 * Well i did, and it worked, as of release `0.0.2` of the present git repo;
