@@ -19,7 +19,7 @@ Well actually it started with a build from source recipe, but suddenly :
 * modify the build env. variable `VERSION_APM` inside the `docker-compose.yml` : 
   * the value of that variable should be a valid (an existing) tag on the `APM` source code reference git repo, see https://github.com/atom/apm/releases .
   * setting this variable allows you to set which version of APM's source code, will be used to build APM from source. 
-* Note that I succeeded building APM version `2.4.3`, but it seems we have [a problem with latest `2.4.4`, and `2.4.5`](#aproblemwith2.4.4and2.4.5). 
+* Note that I succeeded building APM version `2.4.3`, but it seems we have [a problem with latest `2.4.4`, and `2.4.5`](#apms-git-utils-dependency-problem-in-apm-latests-releases-244-and-245). 
 * Just `git` clone and `docker-compose up -d`
 
 ### Note ...
