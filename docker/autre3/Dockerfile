@@ -44,6 +44,19 @@ RUN git clone --depth 1 https://github.com/pyenv/pyenv.git $PYENV_HOME && \
 
 ENV PATH $PYENV_HOME/shims:$PYENV_HOME/bin:$PATH
 
+#
+# For future reference : 
+# I had already ca-certificates installed but the error persisted.
+# The problem was that my certificates were located in [/etc/ssl/certs/ca-certificates.crt] instead 
+# of [/etc/pki/tls/certs/ca-bundle.crt], so I just had to set the environmental 
+# variable CURL_CA_BUNDLE to the correct path
+# Jean-Baptiste Lasselle : thank you so much to Robert Smith : 
+# https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
+# https://stackoverflow.com/users/460147/robert-smith
+# 
+ARG CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+ENV CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 RUN pyenv install $APM_BUILD_PYTHON_VERSION
 RUN pyenv global $APM_BUILD_PYTHON_VERSION
 RUN pip install --upgrade pip && pyenv rehash
