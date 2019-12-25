@@ -3,7 +3,7 @@
 
 ### What's this ?
 
-An automated `APM` Build From Source. The recipe also shows how to standalone run `APM`, and was originally shared at https://github.com/atom/apm/issues/871 
+An automated `APM` Build From Source. The recipe also shows how to standalone run `APM`, and was originally shared at https://github.com/atom/apm/issues/871
 
 Well actually it started with a build from source recipe, but suddenly :
 * I manage to tear off Atom IDE, its package manager : `APM`
@@ -16,6 +16,10 @@ Well actually it started with a build from source recipe, but suddenly :
 
 ### How to use
 
+* modify the build env. variable `VERSION_APM` inside the `docker-compose.yml` : 
+  * the value of that variable should be a valid (an existing) tag on the `APM` source code reference git repo, see https://github.com/atom/apm/releases .
+  * setting this variable allows you to set which version of APM's source code, will be used to build APM from source. 
+* Note that I succeeded building APM version `2.4.3`, but it seems we have [a problem with latest `2.4.4`, and `2.4.5`](#aproblemwith2.4.4and2.4.5). 
 * Just `git` clone and `docker-compose up -d`
 
 ### Note ...
@@ -27,3 +31,41 @@ Recette de provision du package manager Atom : APM
 https://github.com/atom/apm
 
 apm est habituallement installé avec Atom. Cette recette permet de l'installer en autonome, pour éclater Atom en différents conteneurs Docker.
+
+
+# IAAC
+
+```bash
+export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
+
+export URI_DE_CE_REPO=git@gitlab.com:second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager.git
+
+export COMMIT_MESSAGE=""
+export COMMIT_MESSAGE="COMMIT_MESSAGE Votre msg de commit"
+
+
+git clone "$URI_DE_CE_REPO" .
+
+atom .
+
+# git add --all && git commit -m "COMMIT_MESSAGE" && git push -u origin master
+```
+
+# Run
+
+```bash
+
+export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
+
+export URI_DE_CE_REPO=git@gitlab.com:second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager.git
+
+git clone "$URI_DE_CE_REPO" .
+
+docker-compose up -d
+docker-compose logs -f
+
+# docker exec -it apm_build_from_src sh -c "/pipeline/ops/bin/apm update"
+
+# docker exec -it apm_build_from_src sh -c "/pipeline/ops/bin/apm install hydrogen"
+
+```

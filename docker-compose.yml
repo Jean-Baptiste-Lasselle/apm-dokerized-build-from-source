@@ -12,11 +12,12 @@ services:
       context: docker/autre3
       args:
         # + ...
+        - VERSION_APM=v2.4.3
         - AAAA="voyons$BBBB"
-        
+
     environment:
       # + ...
-      - AAAA="voila$BBBB"
+      - VERSION_APM=2.4.3
     # ---------------------------------------------
     # [docker [run|exec] -it ...]
     # stdin
