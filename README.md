@@ -70,7 +70,7 @@ docker-compose logs -f
 
 ```
 
-# Issues I ealt with
+# Issues I dealt with
 
 ## APM's `git-utils` dependency problem in APM latests releases 2.4.4 and 2.4.5
 
