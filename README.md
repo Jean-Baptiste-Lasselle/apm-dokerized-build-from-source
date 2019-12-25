@@ -38,7 +38,7 @@ apm est habituallement installé avec Atom. Cette recette permet de l'installer 
 ```bash
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
 
-export URI_DE_CE_REPO=git@gitlab.com:second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager.git
+export URI_DE_CE_REPO=git@gitlab.com:Jean-Baptiste-Lasselle/apm-dokerized-build-from-source.git
 
 export COMMIT_MESSAGE=""
 export COMMIT_MESSAGE="COMMIT_MESSAGE Votre msg de commit"
@@ -57,7 +57,7 @@ atom .
 
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa'
 
-export URI_DE_CE_REPO=git@gitlab.com:second-bureau/pegasus/atom-ide/provision-apm-atom-package-manager.git
+export URI_DE_CE_REPO=https://github.com/Jean-Baptiste-Lasselle/apm-dokerized-build-from-source.git
 
 git clone "$URI_DE_CE_REPO" .
 
