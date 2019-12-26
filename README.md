@@ -374,13 +374,13 @@ _lien vers le commit exact : https://github.com/atom/apm/commit/5332714ecc839a9f
 _**Final Remark**_
 
 
-Fianlly, I remark that when you develop any software, moving from version `4.0`, to version `5.6.2`, of a runtime dependency, well of course you can expect that things will "break" in your software !!!
+Finally, I remark that when you develop any software, moving from version `4.0`, to version `5.6.2`, of a runtime dependency, well of course you can expect that things will "break" in your software !!!
 
 So, what is happening on the `Atom` Project ?  
 
 Are they migrating the `git-utils` dependency because they suddenly realized they left behind  tons of releases of `git-uils` ?
 
-Or has there been a massive problem with `git-utils` it self, and it took tons of releases to fix it ? Well if that is the case, one thing I don' understand is that `git-utils` is a project administered gy the Atom Organization on Github, so all those `git-utils` releases, if they were not useful to `APM`, who (which project) were they useful too?
+Or has there been a massive problem with `git-utils` it self, and it took tons of releases to fix it ? Well if that is the case, one thing I don't understand is that `git-utils` is a project administered the Atom Organization on Github, so all those `git-utils` releases, if they were not useful to `APM`, who (which project) were they useful to?
 
 Well all those questions confort my initial motivation for creating this repo : saving `Atom` (from `Microsoft` ?) 
 
