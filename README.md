@@ -378,7 +378,7 @@ Finally, I remark that when you develop any software, moving from version `4.0`,
 
 So, what is happening on the `Atom` Project ?  
 
-Are they migrating the `git-utils` dependency because they suddenly realized they left behind  tons of releases of `git-uils` ?
+Are they migrating the `git-utils` dependency because they suddenly realized they left behind  tons of releases of `git-utils` ?
 
 Or has there been a massive problem with `git-utils` it self, and it took tons of releases to fix it ? Well if that is the case, one thing I don't understand is that `git-utils` is a project administered the Atom Organization on Github, so all those `git-utils` releases, if they were not useful to `APM`, who (which project) were they useful to?
 
